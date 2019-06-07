@@ -23,31 +23,34 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     The above should show the username / email of your GenyMotion Cloud account
 * See list of devices available "Google Pixel" in GenyMotion Cloud:
 
-    ```    $ gmsaas recipes list | grep "Pixel 3" ```
+    ```    $ "gmsaas recipes list | grep "Pixel 3 ```
 
     ex:
     ```
     143eb44a-1d3a-4f27-bcac-3c40124e2836  Google Pixel 3         9.0        1080 x 2160 dpi 420  genymotion
     e5008049-8394-40fc-b7f8-87fa9f1c305f  Google Pixel 3 XL      9.0        1440 x 2960 dpi 560  genymotion
     ```
+    
+    **_NOTE: The UDIDs listed above will keep changing. So do not copy / paste directly._**
+    
 * Start 2 devices
     ```
-    gmsaas instances start 143eb44a-1d3a-4f27-bcac-3c40124e2836 pixel3
-    gmsaas instances start e5008049-8394-40fc-b7f8-87fa9f1c305f pixel3xl
+    gmsaas instances start <udid1> pixel3
+    gmsaas instances start <udid2> pixel3xl
     ```
 * You can see the started instances in GenyMotion Cloud Ui - https://cloud.geny.io/app/default-devices
 * Establish adb connection with the started instances
     ```
-    $ gmsaas instances adbconnect --adb-serial-port 5554 abfa0f44-a08e-43f7-8350-c101cc768fdd
-    $ gmsaas instances adbconnect --adb-serial-port 5556 7bed687c-a478-464d-8645-7486fb95a1b0
+    $ gmsaas instances adbconnect --adb-serial-port 5554 <udid1>
+    $ gmsaas instances adbconnect --adb-serial-port 5556 <udid2>
     ```
 * See the list of GenyMotion Cloud devices connected 
     ```
     $ gmsaas instances list
     UUID                                  NAME      ADB SERIAL      STATE
     ------------------------------------  --------  --------------  -------
-    abfa0f44-a08e-43f7-8350-c101cc768fdd  pixel3    localhost:5554  ONLINE
-    7bed687c-a478-464d-8645-7486fb95a1b0  pixel3xl  localhost:5556  ONLINE
+    <udid1>                               pixel3    localhost:5554  ONLINE
+    <udid2>                               pixel3xl  localhost:5556  ONLINE
     ```
 
 
