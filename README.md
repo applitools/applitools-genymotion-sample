@@ -23,7 +23,7 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     The above should show the username / email of your GenyMotion Cloud account
 * See list of devices available "Google Pixel" in GenyMotion Cloud:
 
-    ```    $ "gmsaas recipes list | grep "Pixel 3" ```
+    ```    $ gmsaas recipes list | grep "Pixel 3" ```
 
     ex:
     ```
