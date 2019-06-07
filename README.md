@@ -9,7 +9,8 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     * The below instructions (for GenyMotion devices) assumes this hard-coded setup. The test infrastructure code should be able to make this dynamic at runtime
 
 # Applitools Setup
-* Get Applitools API key, and set is as environment variable - APPLITOOLS_API_KEY
+* Create an Applitools account
+* Get the Applitools API key from the Applitools Dashboard, or from the email you would have received with the key, and set is as environment variable - **APPLITOOLS_API_KEY**
 
 # GenyMotion Devices Setup
 
