@@ -34,12 +34,13 @@ public class GenyParallel {
     public Object[][] provide() throws Exception {
         return new Object[][]{
                 {"4723", "localhost:5554", "8201", 2, 5},
-                {"4724", "localhost:5556", "8202", 3, 6}};
+                {"4724", "localhost:5556", "8202", 3, 6}
+                };
     }
 
     @BeforeSuite
     public void setUp() {
-        batch = new BatchInfo("AppliGeny");
+        batch = new BatchInfo("ApplitoolsGenyMotion");
     }
 
     @BeforeMethod
@@ -60,7 +61,7 @@ public class GenyParallel {
         eyes.setSaveNewTests(true);
         eyes.setMatchLevel(MatchLevel.EXACT);
         eyes.setBatch(batch);
-        eyes.open(driver, "calculator", methodName + appiumPort);
+        eyes.open(driver, "Calculator", methodName + "-" + appiumPort);
         allEyes.put(udid, eyes);
     }
 
