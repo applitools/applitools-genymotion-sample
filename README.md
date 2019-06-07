@@ -73,10 +73,9 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     ```
 
 # Run the Tests
-* From command line, start 2 instances of Appium server using the commands shown below:
+* From command line, start Appium server using the command shown below:
     ``` 
     $ appium -p 4723 &
-    $ appium -p 4724 & 
     ```
     
 * You can now run the test in parallel and see the test execute in GenyMotion Cloud, and see the Visual Testing results in the Applitools Test Manager Dashboard

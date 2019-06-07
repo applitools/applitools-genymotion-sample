@@ -33,8 +33,8 @@ public class GenyParallel {
     @DataProvider(name = "geny-device-provider", parallel = true)
     public Object[][] provide() throws Exception {
         return new Object[][]{
-                {"4723", "localhost:5554", "8201", 2, 5},
-                {"4724", "localhost:5556", "8202", 3, 6}
+                {"4723", "localhost:5554", 8201, 2, 5},
+                {"4723", "localhost:5556", 8202, 3, 6}
                 };
     }
 
@@ -49,7 +49,7 @@ public class GenyParallel {
         ITestResult result = ((ITestResult) testArgs[1]);
         String appiumPort = testArgs[2].toString();
         String udid = (String) testArgs[3];
-        String systemPort = (String) testArgs[4];
+        Integer systemPort = (Integer) testArgs[4];
 
         log(String.format("Create AppiumDriver for - %s:%s, appiumPort - %s", udid, systemPort, appiumPort));
         AppiumDriver driver = createAppiumDriver(appiumPort, udid, systemPort);
@@ -72,7 +72,7 @@ public class GenyParallel {
         ITestResult result = ((ITestResult) testArgs[1]);
         String appiumPort = testArgs[2].toString();
         String udid = (String) testArgs[3];
-        String systemPort = (String) testArgs[4];
+        Integer systemPort = (Integer) testArgs[4];
 
         Eyes eyes = allEyes.get(udid);
         AppiumDriver driver = drivers.get(udid);
@@ -103,7 +103,7 @@ public class GenyParallel {
     }
 
     @Test(dataProvider = "geny-device-provider", threadPoolSize = 2)
-    public void runTest(Method method, ITestResult testResult, String appiumPort, String udid, String systemPort, int num1, int num2) {
+    public void runTest(Method method, ITestResult testResult, String appiumPort, String udid, Integer systemPort, int num1, int num2) {
         log(String.format("Runnng test on %s:%s, appiumPort - ", udid, systemPort, appiumPort));
         log(String.format("drivers.size()=%d, allEyes.size()=%d", drivers.size(), allEyes.size()));
         AppiumDriver driver = drivers.get(udid);
@@ -137,7 +137,7 @@ public class GenyParallel {
         System.out.println(" ### " + new Date().toString() + " ### " + testResult);
     }
 
-    private AppiumDriver createAppiumDriver(String appiumPort, String udid, String systemPort) {
+    private AppiumDriver createAppiumDriver(String appiumPort, String udid, Integer systemPort) {
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
