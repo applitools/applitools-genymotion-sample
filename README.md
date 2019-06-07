@@ -5,7 +5,8 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
 # Setup
 
 * Get Applitools API key, and set is as environment variable - APPLITOOLS_API_KEY
-* Setup GenyMotion utility - **gmsaas**. See instructions here
+* Create a GenyMotion Cloud account (https://www.genymotion.com/account/create/)
+* Setup GenyMotion utility - **gmsaas** using the instructions here - https://www.genymotion.com/blog/gmsaas-new-cli-automate-lifecycle-genymotion-cloud
 * To check if you are connected to GenyMotion Cloud, run
 ```    $ gmsaas auth whoami ``` 
     The above should show the username / email of your GenyMotion Cloud account
