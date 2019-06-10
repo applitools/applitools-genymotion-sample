@@ -6,26 +6,29 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
 * The Test (GenyParallel.java) assumes the following:
     * There are 2 instances of the test running in parallel
     * The port numbers, udid are hard-coded in the test to make the demo easier. But this can / should be externalized for better flexibility / scaling
-    * The below instructions (for GenyMotion devices) assumes this hard-coded setup. The test infrastructure code should be able to make this dynamic at runtime
+    * The below instructions (for Genymotion devices) assumes this hard-coded setup. The test infrastructure code should be able to make this dynamic at runtime
 
 # Applitools Setup
 * Create an Applitools account
 * Get the Applitools API key from the Applitools Dashboard, or from the email you would have received with the key, and set is as environment variable - **APPLITOOLS_API_KEY**
 
-# GenyMotion Devices Setup
+# Genymotion Devices Setup
 
-* Create a GenyMotion Cloud account (https://www.genymotion.com/account/create/)
-* Setup GenyMotion utility - **gmsaas** using the instructions here - https://www.genymotion.com/blog/gmsaas-new-cli-automate-lifecycle-genymotion-cloud, or https://pypi.org/project/gmsaas/
-* To check if you are connected to GenyMotion Cloud, run
+* Sign up on https://cloud.geny.io to create a Genymotion Cloud account
+* Setup Genymotion command line tool - **gmsaas** using the instructions here - https://www.genymotion.com/blog/gmsaas-new-cli-automate-lifecycle-genymotion-cloud, or https://pypi.org/project/gmsaas/
+* To check if you are connected to Genymotion Cloud, run
 
     ```    $ gmsaas auth whoami ``` 
     
-    The above should show the username / email of your GenyMotion Cloud account
-* See list of devices available "Google Pixel" in GenyMotion Cloud:
+    The above should show the username / email of your Genymotion Cloud account
+* See list of devices available devices in Genymotion Cloud:
 
     ```    $ gmsaas recipes list | grep "Pixel 3" ```
+    
+    For this demo, I am going to use Google Pixel 3 devices, so I can narrow the search using the below command:
+    
+    ```    $ gmsaas recipes list | grep "Pixel 3" ```
 
-    Example:
     ```
     143eb44a-1d3a-4f27-bcac-3c40124e2836  Google Pixel 3         9.0        1080 x 2160 dpi 420  genymotion
     e5008049-8394-40fc-b7f8-87fa9f1c305f  Google Pixel 3 XL      9.0        1440 x 2960 dpi 560  genymotion
@@ -37,7 +40,7 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     gmsaas instances start e5008049-8394-40fc-b7f8-87fa9f1c305f pixel3xl
     ```
     
-    **_NOTE: The above commands will create a new instance of the devices in GenyMotion Cloud. When you see the started devices, make note of the devices' udid._**
+    **_NOTE: The above commands will start a new instance of the devices in Genymotion Cloud. When you see the started devices, make note of the devices' udid._**
     Example:
     
     ```
@@ -50,7 +53,7 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     
     **_NOTE: The UDIDs listed above will keep changing. So do not copy / paste directly._**
     
-* You can also see the started instances in GenyMotion Cloud Ui - https://cloud.geny.io/app/default-devices
+* You can also see the started instances in Genymotion Cloud Ui - https://cloud.geny.io/app/default-devices
 * Establish adb connection with the started instances
     ```
     $ gmsaas instances adbconnect --adb-serial-port 5554 <udid1>
@@ -64,7 +67,7 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     <udid1>                               pixel3    localhost:5554  ONLINE
     <udid2>                               pixel3xl  localhost:5556  ONLINE
     ```
-* You will now be able to see these GenyMotion Cloud virtual devices as a local device
+* You will now be able to see these Genymotion Cloud virtual devices as a local device
     ```
     $ adb devices
     List of devices attached
@@ -78,4 +81,4 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     $ appium -p 4723 &
     ```
     
-* You can now run the test in parallel and see the test execute in GenyMotion Cloud, and see the Visual Testing results in the Applitools Test Manager Dashboard
+* You can now run the test in parallel and see the test execute in Genymotion Cloud, and see the Visual Testing results in the Applitools Test Manager Dashboard
