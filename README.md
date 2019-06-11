@@ -9,12 +9,15 @@ This repo showcases how to integrate Java / TestNG test for Native apps, using A
     * The below instructions (for Genymotion devices) assumes this hard-coded setup. The test infrastructure code should be able to make this dynamic at runtime
 
 # Applitools Setup
-* Create an Applitools account
-* Get the Applitools API key from the Applitools Dashboard, or from the email you would have received with the key, and set is as environment variable - **APPLITOOLS_API_KEY**
+* Create a free Applitools account: https://applitools.com/free
+* Get your Applitools API key: https://help.applitools.com/hc/en-us/articles/360006914732-The-runner-key-API-Key-
+* Set the **APPLITOOLS_API_KEY** environment variable: 
+    - Mac: ```export APPLITOOLS_API_KEY='YOUR_API_KEY' ```
+    - Windows: ```set APPLITOOLS_API_KEY='YOUR_API_KEY'```
 
 # Genymotion Devices Setup
 
-* Sign up on https://cloud.geny.io to create a Genymotion Cloud account
+* Sign up on [Genymotion Cloud](http://cloud.geny.io/?&utm_source=github&utm_medium=integration&utm_campaign=applitools) to create an account
 * Setup Genymotion command line tool - **gmsaas** using the instructions here - https://www.genymotion.com/blog/gmsaas-new-cli-automate-lifecycle-genymotion-cloud, or https://pypi.org/project/gmsaas/
 * To check if you are connected to Genymotion Cloud, run
 
